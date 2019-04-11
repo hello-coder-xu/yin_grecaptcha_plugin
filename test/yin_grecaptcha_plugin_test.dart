@@ -16,6 +16,6 @@ void main() {
   });
 
   test('getPlatformVersion', () async {
-    expect(await YinGrecaptchaPlugin.platformVersion, '42');
+    expect(await YinGrecaptchaPlugin.verify("6LeXVJ0UAAAAACGNen5nViphlEOmLx7sULKu-RB0"), '42');
   });
 }
