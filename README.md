@@ -1,14 +1,9 @@
 # yin_grecaptcha_plugin
 
-google recaptcha v2
+support Google ReCAPTCHA V2 (not V3)
+get ReCAPTCHA V2 tokenResult
 
 ## Getting Started
-
-
-support Google ReCAPTCHA V2 (not V3)
-
-
-get ReCAPTCHA V2 tokenResult
 
 how to use
 
