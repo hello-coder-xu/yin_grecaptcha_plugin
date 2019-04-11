@@ -1,6 +1,7 @@
 package com.addcn.yin_grecaptcha_plugin;
 
 import android.text.TextUtils;
+
 import io.flutter.plugin.common.MethodCall;
 import io.flutter.plugin.common.MethodChannel;
 import io.flutter.plugin.common.MethodChannel.MethodCallHandler;
@@ -40,6 +41,7 @@ public class YinGrecaptchaPlugin implements MethodCallHandler {
         channel.setMethodCallHandler(new YinGrecaptchaPlugin(registrar));
     }
 
+
     @Override
     public void onMethodCall(MethodCall call, final Result result) {
         if (call.method.equals("verify")) {
@@ -56,7 +58,6 @@ public class YinGrecaptchaPlugin implements MethodCallHandler {
                                 String userResponseToken = response.getTokenResult();
                                 if (!TextUtils.isEmpty(userResponseToken)) {
                                     result.success(userResponseToken);
-                                    System.out.println("test =" + userResponseToken);
                                 }
                             }
                         });
@@ -68,10 +69,8 @@ public class YinGrecaptchaPlugin implements MethodCallHandler {
                             int statusCode = apiException.getStatusCode();
                             result.error(TAG, CommonStatusCodes.getStatusCodeString(statusCode),
                                     null);
-                            System.out.println("Error: " + CommonStatusCodes.getStatusCodeString(statusCode));
                         } else {
                             result.error(TAG, e.getMessage(), null);
-                            System.out.println("Error: " + e.getMessage());
                         }
                     }
                 });
