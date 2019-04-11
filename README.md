@@ -4,42 +4,39 @@ google recaptcha v2
 
 ## Getting Started
 
-use **Google ReCAPTCHA V2** (not V3)
 
-Obtain your own key & secret here: https://www.google.com/recaptcha
+support Google ReCAPTCHA V2 (not V3)
 
-Put `RecaptchaV2` widget into your widget tree (Usually inside `Stack` widget), **make sure it's placed on top of the tree and block all the behind interactions**:
 
+get ReCAPTCHA V2 tokenResult
+
+how to use
+
+import package
 ```
-RecaptchaV2Controller recaptchaV2Controller = RecaptchaV2Controller();
-...
-RecaptchaV2(
-	apiKey: "YOUR_API_KEY", // for enabling the reCaptcha
-	apiSecret: "YOUR_API_SECRET", // for verifying the responded token
-	controller: recaptchaV2Controller,
-	onVerifiedError: (err){
-		print(err);
-	},
-	onVerifiedSuccessfully: (success) {
-		setState(() {
-		if (success) {
-			// You've been verified successfully.
-		} else {
-			// "Failed to verify.
-		}
-		});
-	},
-),
+  dependencies:
+  	yin_grecaptcha_plugin: ^0.0.1
 ```
 
-The `RecaptchaV2` widget is hidden by default, you need to attach the `RecaptchaV2Controller` and call `show()` method when needed. Like this:
+code
 ```
-recaptchaV2Controller.show();
+  import 'package:yin_grecaptcha_plugin/yin_grecaptcha_plugin.dart';
 ```
+```
+  Future<void> getToken() async {
+    String token;
+    try {
+      token = await YinGrecaptchaPlugin.verify("6LeXVJ0UAAAAACGNen5nViphlEOmLx7sULKu-RB0");
+    } on PlatformException {
+      token = 'Failed to get token.';
+    }
 
-Manually hide it:
-```
-recaptchaV2Controller.hide();
-```
+    if (!mounted) return;
 
+    print("token =" + token);
+    setState(() {
+      _token = token;
+    });
+  }
+```
 That's it!
