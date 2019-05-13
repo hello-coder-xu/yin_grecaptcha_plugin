@@ -18,7 +18,6 @@ import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 
-import android.support.annotation.NonNull;
 
 /**
  * YinGrecaptchaPlugin
@@ -63,7 +62,7 @@ public class YinGrecaptchaPlugin implements MethodCallHandler {
                         });
                 task.addOnFailureListener(registrar.activity(), new OnFailureListener() {
                     @Override
-                    public void onFailure(@NonNull Exception e) {
+                    public void onFailure(Exception e) {
                         if (e instanceof ApiException) {
                             ApiException apiException = (ApiException) e;
                             int statusCode = apiException.getStatusCode();
