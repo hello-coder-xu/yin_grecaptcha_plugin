@@ -12,7 +12,7 @@ how to use
 import package
 ```
   dependencies:
-  	yin_grecaptcha_plugin: ^0.0.2
+  	yin_grecaptcha_plugin: ^0.0.3
 ```
 
 code
